@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
   end
   
   def show
-  
+    @review = @recipe.reviews.build
   end
   
   def new
@@ -54,6 +54,10 @@ class RecipesController < ApplicationController
     end
   end
   
+  def review
+    Review.create(review: params[:review], chef: current_user, recipe: @recipe)
+  end
+
   def destroy
     Recipe.find(params[:id]).destroy
     flash[:success] = "Recipe Deleted"
@@ -62,7 +66,7 @@ class RecipesController < ApplicationController
 
   private
     
-    def  recipe_params
+    def recipe_params
       params.require(:recipe).permit(:name, :summary, :description, :picture, style_ids: [], ingredient_ids: [])
     end
 

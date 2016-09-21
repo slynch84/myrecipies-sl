@@ -36,3 +36,17 @@ What we need to do:
 - Restrict actions like create recipe, edit recipe and like feature to logged in chefs only
 - Restricting edit of recipies by chefs who created the recipes
 
+Add Reviews Section:
+- One review per recipe per chef
+- Available to logged in users
+- Need a new table for reviews and review id
+- Table needs a body, title, chef_id, recipe_id
+
+- buld a review model
+- create tests for spec and add validations
+- buld the associations, has_many and belongs_to
+- Test out the associations in rails console
+- Create routes
+- Only authenticated chefs can create reviews, before_action require_user
+- Associate a chef_id and recipe_id
+- use existing code if possible. 
